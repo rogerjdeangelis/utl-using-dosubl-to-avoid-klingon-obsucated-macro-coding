@@ -1,6 +1,13 @@
 # utl-using-dosubl-to-avoid-klingon-obsucated-macro-coding
-Using dosubl to avoid klingon obsucated macro coding
     Using dosubl to avoid klingon obsucated macro coding
+
+      Two Solutions
+
+          1.  "dir ""c:\windows\&soft.dist"" /b"
+              Bartosz Jablonski
+              yabwon@gmail.com
+
+          2. Another solution below
 
     github
     https://tinyurl.com/re2pfoj
@@ -53,7 +60,6 @@ Using dosubl to avoid klingon obsucated macro coding
     ;
 
     dir ""c:\windows\softwaredistribution"" /b"
-
        AuthCabs
        DataStore
        Download
@@ -61,7 +67,6 @@ Using dosubl to avoid klingon obsucated macro coding
        ReportingEvents.log
        SelfUpdate
        WuRedir
-
     *          _       _   _
      ___  ___ | |_   _| |_(_) ___  _ __  ___
     / __|/ _ \| | | | | __| |/ _ \| '_ \/ __|
@@ -72,13 +77,10 @@ Using dosubl to avoid klingon obsucated macro coding
      / _` |    / _` |/ _ \/ __| | | | '_ \| |
     | (_| |_  | (_| | (_) \__ \ |_| | |_) | |
      \__,_(_)  \__,_|\___/|___/\__,_|_.__/|_|
-
     ;
     %symdel soft dist cmd / nowarn;
-
     %let soft=software;
     %let dist=distribution;
-
     %let rc=%qsysfunc(dosubl(%nrstr(
         data _null_;
             cmd=resolve('dir "c:\windows\&soft.&dist" /b');
@@ -92,47 +94,35 @@ Using dosubl to avoid klingon obsucated macro coding
       input;
       put _infile_;
     run;quit;
-
     *_        _  __     _                 _     _
     | |__    (_)/ /  __| | ___  ___ _   _| |__ | |
     | '_ \     / /  / _` |/ _ \/ __| | | | '_ \| |
     | |_) |   / /_ | (_| | (_) \__ \ |_| | |_) | |
     |_.__(_) /_/(_) \__,_|\___/|___/\__,_|_.__/|_|
-
     ;
-
     %symdel soft dist cmd / nowarn;
-
     %let soft=software;
     %let dist=distribution;
-
     %dosubl(%nrstr(
         data _null_;
             cmd=resolve('dir "c:\windows\&soft.&dist" /b');
             call symputx("cmd",quote(trim(cmd)));
         run;quit;
     ));
-
-
     filename filelist pipe &cmd;
     data _null_;
       infile filelist;
       input;
       put _infile_;
     run;quit;
-
-
     *    _                 _     _
       __| | ___  ___ _   _| |__ | |  _ __ ___   __ _  ___ _ __ ___
      / _` |/ _ \/ __| | | | '_ \| | | '_ ` _ \ / _` |/ __| '__/ _ \
     | (_| | (_) \__ \ |_| | |_) | | | | | | | | (_| | (__| | | (_) |
      \__,_|\___/|___/\__,_|_.__/|_| |_| |_| |_|\__,_|\___|_|  \___/
-
     ;
-
     %macro dosubl(arg);
       %let rc=%qsysfunc(dosubl(&arg));
     %mend dosubl;
-
 
 
