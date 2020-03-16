@@ -6,6 +6,7 @@
           1.  "dir ""c:\windows\&soft.dist"" /b"
               Bartosz Jablonski
               yabwon@gmail.com
+              
 
           2. Another solution below
 
