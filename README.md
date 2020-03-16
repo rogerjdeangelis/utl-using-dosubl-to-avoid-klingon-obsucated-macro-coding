@@ -1,7 +1,7 @@
 # utl-using-dosubl-to-avoid-klingon-obsucated-macro-coding
     Using dosubl to avoid klingon obsucated macro coding
 
-      Two Solutions
+      Three Solutions
 
           1.  "dir ""c:\windows\&soft.dist"" /b"
           Bartosz Jablonski
