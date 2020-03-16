@@ -4,11 +4,20 @@
       Two Solutions
 
           1.  "dir ""c:\windows\&soft.dist"" /b"
-              Bartosz Jablonski
-              yabwon@gmail.com
-              
+          Bartosz Jablonski
+          yabwon@gmail.com
+          
+      2.  Although it’s harder to read, this won’t fail
+          if the filename (&soft) contains a double quote:
+          %let soft=a;
+          %let dist=b;
+          %put %sysfunc(quote(dir %sysfunc(quote(c:\windows\&soft.&dist)) /b));
+          "dir ""c:\windows\ab"" /b"
+          Tom Robinson
+          barefootguru@gmail.com
 
-          2. Another solution below
+       3. Another solution below          
+
 
     github
     https://tinyurl.com/re2pfoj
